@@ -11,4 +11,3 @@ Colores y logos de la empresa: Color rojo oscuro para acciones(perfil o contacto
 Dentro del panel se muestra la lista de los empleos disponibles con secciones de las que se mencionaron de reparación, barra de búsqueda con filtros a la derecha, imágenes o íconos (herramientas o engrane como animación de carga), hasta arriba su botón de ingreso en la landing con promociones, info de la empresa y de los trabajos que se ofrecen en scroll.
 
 Integrantes:
-ISMAEL DAVID FLORES LUNA
