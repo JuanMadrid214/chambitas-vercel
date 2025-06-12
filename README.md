@@ -3,4 +3,4 @@ Requerimientos de la empresa Chambitas. Historia: Búsqueda de empleos(jornalero
 Integrantes: 
 Isaí López Fuentes
  Kevin Noé Fernández López
- Ismael David Flores Luna
+ ismael david flores luna
