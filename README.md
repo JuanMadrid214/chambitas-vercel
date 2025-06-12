@@ -12,3 +12,4 @@ Dentro del panel se muestra la lista de los empleos disponibles con secciones de
 
 Integrantes:
 Isaí López Fuentes
+Ismael David Flores Luna
