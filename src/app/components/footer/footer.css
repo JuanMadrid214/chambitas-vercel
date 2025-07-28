@@ -1,0 +1,37 @@
+/* ===== FOOTER ===== */
+
+footer {
+    background-color: #283e4a;
+    color: white;
+    padding: 2rem 0;
+}
+
+footer a {
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+footer a:hover {
+    opacity: 1;
+}
+
+footer input[type="email"] {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .card {
+        margin-bottom: 1.5rem;
+    }
+}

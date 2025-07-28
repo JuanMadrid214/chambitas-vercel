@@ -1,0 +1,37 @@
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e6e9ec;
+}
+
+.navbar-brand {
+    color: #0a66c2 !important;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.nav-link {
+    color: #1d2226 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+    color: #0a66c2 !important;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .card {
+        margin-bottom: 1.5rem;
+    }
+}

@@ -1,0 +1,99 @@
+<div class="container mt-5 registration-container">
+    <div class="registration-card">
+        <h3 class="registration-title">Registro para trabajadores</h3>
+        <div class="row align-items-center">
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="registration-image-container">
+                    <img src="https://res.cloudinary.com/djcjtdgrm/image/upload/v1753688440/sam-clarke-ZEfFgaXVaV4-unsplash_jzsozt.jpg" class="registration-image" alt="Trabajadores" />
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <form class="registration-form">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" placeholder="Nombre completo">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">CURP</label>
+                            <input type="text" class="form-control" placeholder="CURP">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Usuario</label>
+                            <input type="text" class="form-control" placeholder="Usuario">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" placeholder="Contraseña">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">RFC</label>
+                            <input type="text" class="form-control" placeholder="RFC">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Especialidad</label>
+                            <select class="form-select">
+                                <option>Carpintería</option>
+                                <option>Electricidad</option>
+                                <option>Plomería</option>
+                                <option>Construcción</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Código Postal</label>
+                            <input type="text" class="form-control" placeholder="Código Postal">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Zona</label>
+                            <select class="form-select">
+                                <option>El Dorado</option>
+                                <option>Centro</option>
+                                <option>Zona Norte</option>
+                                <option>Zona Sur</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Imagen copia INE</label>
+                        <input type="file" class="form-control" accept=".jpg, .jpeg, .pdf">
+                    </div>
+
+                    <!-- CAPTCHA funcional -->
+                    <div class="mb-4 captcha-container">
+                        <div class="g-recaptcha" data-sitekey="TU_SITE_KEY_DE_GOOGLE"></div>
+                        <div id="captchaError" class="invalid-feedback d-block"></div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn registration-button">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Añadir el script de reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
