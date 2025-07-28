@@ -1,0 +1,88 @@
+/* ===== CONTENEDOR GENERAL ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ===== BOTÓN DE REGRESAR ===== */
+.btn-outline-primary {
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* ===== CARD GENERAL ===== */
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== TÍTULOS Y TEXTOS ===== */
+.service-card h2 {
+  font-size: 2.5rem;
+  color: #0d6efd;
+  margin-bottom: 0.25rem;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.value-description {
+  color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ===== ICONOS (decorativos, no azules) ===== */
+.service-card i {
+  font-size: 2.5rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+/* ===== BOTÓN "Ir" AZUL ===== */
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .service-card h2 {
+    font-size: 2rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+  }
+}

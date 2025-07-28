@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
+  standalone: true,
   imports: [],
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css'
@@ -11,7 +12,7 @@ export class LandingPage {
   constructor (private router:Router) {}
 
   Navegarlanding(){
-    this.router.navigate(['/registro-trabajador']);
+    this.router.navigate(['/tipo-registro']);
   }
 
 }

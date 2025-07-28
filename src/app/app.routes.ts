@@ -12,6 +12,7 @@ import { RestablecerContrasena } from './components/restablecer-contrasena/resta
 import { Resumen } from './components/resumen/resumen';
 import { ServiciosSolicitados } from './components/servicios-solicitados/servicios-solicitados';
 import { Verificacion } from './components/verificacion/verificacion';
+import { TipoRegistro } from './components/tipo-registro/tipo-registro';
 
 export const routes: Routes = [
   { path: '', component: LandingPage },
@@ -28,5 +29,6 @@ export const routes: Routes = [
   { path: 'servicios-solicitados', component: ServiciosSolicitados },
   { path: 'resena-trabajadores', component: ResenaTrabajadores },
   { path: 'resumen', component: Resumen },
+  {path: 'tipo-registro', component: TipoRegistro}, // Assuming this is the intended route for landing page navigation
   { path: '**', redirectTo: '' }
 ];
