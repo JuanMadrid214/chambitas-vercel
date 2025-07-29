@@ -1,1 +1,28 @@
-<p>restablecer-contrasena works!</p>
+<main class="restablecer-main">
+    <header class="restablecer-header">
+        <img src="../assets/img/icono_inicio.png" alt="Icono inicio" class="restablecer-logo" />
+        <h1 class="restablecer-titulo">Restablecer contraseña</h1>
+    </header>
+
+    <div class="contenedor-restablecer">
+        <form (ngSubmit)="enviarCodigo()">
+            <div class="restablecer-form-group">
+                <label for="correo" class="restablecer-form-label">Correo</label>
+                <input type="email" id="correo" class="restablecer-form-input" [class.valid]="correoValido && correo.length > 0" [class.invalid]="!correoValido && correo.length > 0" [(ngModel)]="correo" (input)="validarCorreo($event)" (blur)="validarCorreo($event)" placeholder="example@domain.com"
+                    name="correo" required /> @if (!correoValido && correo.length > 0) {
+                <div class="restablecer-mensaje-error">
+                    Por favor, ingresa un correo electrónico válido
+                </div>
+                }
+            </div>
+
+            <button type="submit" class="restablecer-boton-enviar" [disabled]="isLoading || !correoValido || correo.trim() === ''" [class.loading]="isLoading">
+                {{ isLoading ? 'Enviando...' : (mensajeExito ? 'Código enviado ✓' : 'Enviar código') }}
+            </button> @if (mensajeExito) {
+            <div class="restablecer-mensaje-exito">
+                Se ha enviado un código de restablecimiento a tu correo electrónico
+            </div>
+            }
+        </form>
+    </div>
+</main>

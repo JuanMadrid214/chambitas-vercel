@@ -1,1 +1,28 @@
-<p>verificacion works!</p>
+<!-- HTML -->
+<main>
+    <header>
+        <img src="../assets/img/icono_inicio.png" alt="Icono inicio" class="logo" />
+        <h1 class="titulo">Verificación</h1>
+    </header>
+
+    <div class="contenedor-verificacion">
+        <p class="mensaje-verificacion">
+            Se ha enviado un código de verificación al correo electrónico registrado.
+        </p>
+
+        <div class="codigo-inputs">
+            <input type="text" maxlength="1" [(ngModel)]="codigo[0]" (input)="moverAlSiguiente($event, 0)" class="codigo-input" />
+            <input type="text" maxlength="1" [(ngModel)]="codigo[1]" (input)="moverAlSiguiente($event, 1)" class="codigo-input" />
+            <input type="text" maxlength="1" [(ngModel)]="codigo[2]" (input)="moverAlSiguiente($event, 2)" class="codigo-input" />
+            <input type="text" maxlength="1" [(ngModel)]="codigo[3]" (input)="moverAlSiguiente($event, 3)" class="codigo-input" />
+        </div>
+
+        <button class="boton-verificar" (click)="verificarCodigo()">Verificar</button>
+
+        <!-- Mensaje de reenvío -->
+        <div class="reenvio-container">
+            <p class="mensaje-reenvio">¿No recibiste el código?</p>
+            <a href="#" class="link-reenvio" (click)="reenviarCodigo($event)">Reenviar código</a>
+        </div>
+    </div>
+</main>

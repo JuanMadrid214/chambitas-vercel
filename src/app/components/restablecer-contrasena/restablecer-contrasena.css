@@ -1,0 +1,191 @@
+/* SOLO estilos para el componente - SIN estilos globales */
+
+
+/* Agregamos :host para encapsular mejor los estilos */
+
+:host {
+    display: block;
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    /* Ajusta según la altura de tu header y footer */
+    padding: 2rem 0;
+}
+
+
+/* Cambiamos 'main' por '.restablecer-main' para mayor especificidad */
+
+.restablecer-main {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+/* Cambiamos 'header' por '.restablecer-header' */
+
+.restablecer-header {
+    margin-bottom: 2.5rem;
+}
+
+.restablecer-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+}
+
+.restablecer-titulo {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+.contenedor-restablecer {
+    width: 100%;
+}
+
+.restablecer-form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.restablecer-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #212529;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.restablecer-form-input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: all 0.15s ease-in-out;
+    background-color: #fff;
+    color: #212529;
+}
+
+.restablecer-form-input:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.restablecer-form-input:hover {
+    border-color: #86b7fe;
+}
+
+.restablecer-form-input::placeholder {
+    color: #484b4e;
+    opacity: 0.8;
+}
+
+
+/* Estados de validación */
+
+.restablecer-form-input.valid {
+    border-color: #198754 !important;
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25) !important;
+}
+
+.restablecer-form-input.invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.restablecer-mensaje-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    text-align: left;
+}
+
+.restablecer-boton-enviar {
+    width: 100%;
+    background-color: #0b5ed7;
+    color: white;
+    font-weight: 600;
+    padding: 0.875rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    margin-top: 1rem;
+}
+
+.restablecer-boton-enviar:hover:not(:disabled) {
+    background-color: #0e62b5;
+    transform: translateY(-1px);
+}
+
+.restablecer-boton-enviar:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.restablecer-boton-enviar:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.restablecer-boton-enviar.loading {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.restablecer-mensaje-exito {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+
+/* Responsive */
+
+@media (max-width: 576px) {
+     :host {
+        min-height: calc(100vh - 100px);
+        padding: 1.5rem 0;
+    }
+    .restablecer-main {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    .restablecer-titulo {
+        font-size: 1.5rem;
+    }
+    .restablecer-boton-enviar {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+     :host {
+        min-height: calc(100vh - 80px);
+        padding: 1rem 0;
+    }
+    .restablecer-main {
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
+    }
+    .restablecer-form-input {
+        padding: 0.65rem;
+        font-size: 0.95rem;
+    }
+}
