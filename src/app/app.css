@@ -1,0 +1,30 @@
+/* src/app/app.component.css */
+
+.app-main-content-wrapper {
+  display: flex;
+  /* La altura mínima podría depender de si el navbar/footer se ocultan o no. */
+  /* Si el navbar/footer se ocultan cuando el sidebar se muestra: */
+  min-height: 100vh;
+  /* Si el navbar/footer siempre están visibles, ajusta esto: */
+  /* min-height: calc(100vh - ALTURA_DE_TU_NAVBAR_GLOBAL - ALTURA_DE_TU_FOOTER_GLOBAL); */
+}
+
+/* El contenedor que envuelve el router-outlet */
+.router-content-wrapper {
+  flex-grow: 1; /* Permite que el contenido tome el espacio restante */
+  margin-left: 0; /* Por defecto, NO hay margen a la izquierda */
+  transition: margin-left 0.3s ease-in-out; /* Transición suave para el movimiento */
+}
+
+/* Cuando el sidebar está visible, aplica el margen al contenido principal */
+/* Esta regla SÓLO se activa si el .app-main-content-wrapper tiene la clase .with-sidebar */
+.app-main-content-wrapper.with-sidebar .router-content-wrapper {
+  margin-left: 280px; /* Ancho de tu sidebar, empuja el contenido */
+  background-color: #f8f9fa; /* Fondo gris para el contenido principal cuando el sidebar está presente */
+}
+
+/* Asegura que el body no tenga márgenes/padding que puedan interferir */
+body {
+  margin: 0;
+  padding: 0;
+}

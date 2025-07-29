@@ -1,0 +1,147 @@
+/* src/app/components/resena-trabajadores/resena-trabajadores.component.css */
+
+:host { /* :host se refiere al propio componente <app-resena-trabajadores> */
+  --primary-color: #0d6efd; 
+  --primary-hover: #0b5ed7;
+  --primary-light: rgba(13, 110, 253, 0.1);
+
+  /* variables para el color verde de WhatsApp */
+  --whatsapp-green: #25d366;
+  --whatsapp-green-hover: #1eaf52; /* Un verde un poco más oscuro para el hover */
+}
+
+/* Contenido principal ahora es relativo a este componente */
+.main-content-resenas {
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1400px; /* Mantenemos el ancho máximo para pantallas muy grandes */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Asegura que el enlace "Regresar" sea clickeable */
+.main-content-resenas .text-decoration-none { /* O un selector más específico si es necesario */
+    pointer-events: auto !important; /* Forzar que sea clickeable */
+    cursor: pointer; /* Asegurar que el cursor cambie a mano */
+}
+
+/* NUEVA CLASE para el padding del contenido principal */
+.content-padding {
+  padding: 1.5rem; /* Padding general para todas las pantallas */
+}
+
+@media (min-width: 768px) { /* Para pantallas medianas y más grandes */
+  .content-padding {
+    padding: 3rem; /* Aumentamos el padding en pantallas más grandes */
+  }
+}
+
+/* Estilos de la tarjeta de reseña */
+.card-resena:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+
+/* --- ESTILOS PARA EL BOTÓN "Contactar" --- */
+/* Sobrescribe los estilos por defecto de btn-primary solo dentro de este componente */
+.card-body .btn-primary {
+  background-color: var(--whatsapp-green) !important;
+  border-color: var(--whatsapp-green) !important;
+  color: white !important;
+}
+
+.card-body .btn-primary:hover {
+  background-color: var(--whatsapp-green-hover) !important;
+  border-color: var(--whatsapp-green-hover) !important;
+}
+
+/* Estilo para el icono de WhatsApp para que sea blanco con el botón */
+.card-body .btn-primary i {
+  color: white;
+}
+
+
+/* --- NUEVOS ESTILOS PARA LOS BOTONES --- */
+.button-group {
+    /* Opcional: Si los botones necesitan un ancho máximo en pantallas grandes, para que no se estiren demasiado */
+    max-width: 300px; /* Ejemplo de ancho máximo para el grupo de botones */
+    margin-left: auto; /* Centrar el grupo de botones */
+    margin-right: auto;
+}
+
+.custom-btn {
+    /* Podemos definir un ancho mínimo si queremos que siempre tengan cierto tamaño */
+    min-width: 120px; /* Ejemplo: Asegura un ancho mínimo para cada botón */
+    font-size: 0.875rem; /* Ajusta el tamaño de la fuente si es necesario, 'small' es 0.875rem */
+    line-height: 1.25; /* Ajusta la altura de línea si el texto parece muy pegado */
+}
+
+/* Para asegurar que los botones ocupen el 100% en pantallas extra pequeñas si no los hace Bootstrap */
+@media (max-width: 575.98px) { /* Extra Small devices (portrait phones, less than 576px) */
+    .button-group .custom-btn {
+        width: 100%; /* Hacemos que los botones sean de ancho completo en celulares */
+    }
+}
+
+
+/* Estilos del contenedor de la imagen y botones */
+.image-gallery-container {
+  position: relative; /* Necesario para posicionar los botones de forma absoluta dentro */
+  height: 160px; /* Altura fija para el área de la imagen */
+  background-color: #f0f2f5; /* Un gris claro como fondo por si la imagen no carga */
+  border-radius: 0.5rem; /* Hereda border-radius de .rounded-3 */
+  overflow: hidden; /* Asegura que la imagen no se desborde si es muy grande */
+  display: flex; /* Para centrar el contenido, aunque la imagen sea absoluta */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos de la imagen dentro de la tarjeta */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para que cubra el área sin distorsionarla */
+  display: block; /* Elimina cualquier espacio extra por defecto de las imágenes */
+  position: absolute; /* Para que los botones puedan posicionarse encima */
+  top: 0;
+  left: 0;
+}
+
+/* Estilos para los botones de navegación (chevrons) */
+.image-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Centra verticalmente */
+  z-index: 10; /* Asegura que estén por encima de la imagen */
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semi-transparente */
+  border: none; /* Sin borde */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  padding: 0.5rem; /* Ajusta el padding si el p-1 de Bootstrap no es suficiente */
+  display: flex; /* Para centrar el icono */
+  align-items: center;
+  justify-content: center;
+  width: 32px; /* Ancho fijo para el botón circular */
+  height: 32px; /* Altura fija para el botón circular */
+}
+
+.image-nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* Más opaco al pasar el ratón */
+  transform: translateY(-50%) scale(1.05); /* Ligeramente más grande al pasar el ratón */
+  transition: all 0.2s ease-in-out;
+}
+
+.image-nav-btn i {
+  color: #495057; /* Color oscuro para el icono */
+  font-size: 1.2rem; /* Tamaño del icono */
+}
+
+.nav-left {
+  left: 10px; /* Margen desde la izquierda */
+}
+
+.nav-right {
+  right: 10px; /* Margen desde la derecha */
+}

@@ -1,0 +1,31 @@
+/* Variables CSS para el componente sidebar */
+:host {
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --primary-light: rgba(13, 110, 253, 0.1);
+}
+
+.sidebar-resenas {
+  width: 280px;
+  min-height: 100vh;
+  /* Posición fija para que se quede en su lugar mientras el contenido scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  border-right: 1px solid #dee2e6;
+  z-index: 1000; /* Asegura que esté por encima de casi todo */
+}
+
+/* Estilos de navegación dentro del componente sidebar */
+.sidebar-resenas .nav-link.active {
+  background-color: var(--primary-light);
+  color: var(--primary-color) !important;
+  font-weight: bold;
+}
+.sidebar-resenas .nav-link {
+  color: #495057;
+}
+.sidebar-resenas .nav-link:hover {
+  background-color: #f1f3f5;
+}

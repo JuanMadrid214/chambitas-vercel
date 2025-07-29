@@ -1,0 +1,20 @@
+/* Asegura que el contenedor de la imagen tiene un alto fijo y recorta lo que se salga */
+.card-resena .image-gallery-container {
+  height: 200px; /* Incrementamos ligeramente la altura, ajusta según necesidad */
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--bs-border-radius); /* Aplica el redondeo al contenedor */
+  box-shadow: var(--bs-box-shadow-sm); /* Aplica la sombra al contenedor */
+}
+
+/* Aplica los estilos a la imagen dentro de la tarjeta relacionada */
+.card-resena .image-gallery-container .card-image {
+  width: 100%;       /* Ocupa el 100% del ancho del contenedor */
+  height: 100%;      /* Ocupa el 100% de la altura del contenedor */
+  object-fit: cover; /* ajusta la imagen para cubrir el espacio, recortando si es necesario */
+  object-position: center center; /* Centra la parte visible de la imagen */
+  display: block;    /* Para manejar el espacio en blanco debajo de la imagen */
+
+}

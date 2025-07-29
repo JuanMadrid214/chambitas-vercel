@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CambioContrasena } from './components/cambio-contrasena/cambio-contrasena';
 import { ConfirmacionRestablecer } from './components/confirmacion-restablecer/confirmacion-restablecer';
 import { DetallesServicio } from './components/detalles-servicio/detalles-servicio';
@@ -14,6 +14,11 @@ import { ServiciosSolicitados } from './components/servicios-solicitados/servici
 import { Verificacion } from './components/verificacion/verificacion';
 import { TipoRegistro } from './components/tipo-registro/tipo-registro';
 
+//nuevo componente:
+import { ResenaTrabajadorDetalle } from './components/resena-trabajador-detalle/resena-trabajador-detalle';
+import { NgModule } from '@angular/core';
+
+
 export const routes: Routes = [
   { path: '', component: LandingPage },
   { path: 'tablero', component: LandingPage },
@@ -28,7 +33,15 @@ export const routes: Routes = [
   { path: 'detalles-servicio', component: DetallesServicio },
   { path: 'servicios-solicitados', component: ServiciosSolicitados },
   { path: 'resena-trabajadores', component: ResenaTrabajadores },
+  // NUEVA RUTA para el detalle de las reseñas de un trabajador
+  { path: 'resenas-trabajador/:id', component: ResenaTrabajadorDetalle }, 
   { path: 'resumen', component: Resumen },
   {path: 'tipo-registro', component: TipoRegistro}, // Assuming this is the intended route for landing page navigation
   { path: '**', redirectTo: '' }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

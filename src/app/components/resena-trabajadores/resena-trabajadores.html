@@ -1,1 +1,58 @@
-<p>resena-trabajadores works!</p>
+<div class="main-content-resenas">
+  <main class="content-padding"> 
+    <a routerLink="/landing-page" class="d-flex align-items-center text-decoration-none text-secondary mb-4" >
+      <i class="bi bi-arrow-left-short fs-6 me-1" ></i>
+      Regresar
+    </a>
+    <div class="row custom-card-row g-4"> 
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let trabajador of trabajadores"> <div class="card h-100 d-flex flex-column border-light-subtle card-resena">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-person-circle text-secondary me-2 fs-2"></i>
+              <div>
+                <h3 class="h6 fw-semibold text-dark mb-0">{{ trabajador.nombre }}</h3>
+                <p class="small text-secondary mb-0">{{ trabajador.fecha }}</p>
+                <div class="d-flex align-items-center mt-1">
+                  <ng-container *ngFor="let star of getStars(trabajador.calificacion)">
+                    <i class="bi bi-star-fill text-warning" style="font-size: 1rem;"></i>
+                  </ng-container>
+                  <ng-container *ngFor="let star of getEmptyStars(trabajador.calificacion)">
+                    <i class="bi bi-star text-light-emphasis" style="font-size: 1rem;"></i>
+                  </ng-container>
+                  <span class="small text-secondary ms-1">{{ trabajador.calificacion }}.0/5</span>
+                </div>
+              </div>
+            </div>
+
+            <!--PARA LA IMAGEN-->
+
+            <div class="image-gallery-container mb-3">
+              <img alt="Placeholder for construction project" [src]="trabajador.imagenUrl" class="card-image" />
+
+              <button class="btn btn-light rounded-circle p-1 lh-1 image-nav-btn nav-left">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button class="btn btn-light rounded-circle p-1 lh-1 image-nav-btn nav-right">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+
+            <h4 class="h5 fw-bold text-dark mb-2">{{ trabajador.categoria }}</h4>
+            <p class="card-text small text-secondary mb-4 flex-grow-1">{{ trabajador.resena }}</p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center button-group"> 
+            <a href="https://wa.me/{{trabajador.telefono}}?text=Hola,%20me%20interesa%20tu%20servicio%20de%20{{trabajador.categoria}}%20ofrecido%20por%20{{trabajador.nombre}}.%20Me%20podrías%20dar%20más%20información?" 
+                target="_blank" 
+                class="btn btn-primary custom-btn py-2 px-3 fw-semibold text-decoration-none d-flex align-items-center justify-content-center"> 
+                <i class="bi bi-whatsapp me-2"></i> Contactar 
+            </a> 
+            <a [routerLink]="['/resenas-trabajador', trabajador.id]" 
+                class="btn btn-light custom-btn py-2 px-3 fw-semibold ms-sm-2 mt-2 mt-sm-0 text-decoration-none d-flex align-items-center justify-content-center">
+                Ver reseñas
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

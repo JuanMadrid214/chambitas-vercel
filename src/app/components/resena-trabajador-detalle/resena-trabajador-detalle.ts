@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
-import { RouterLink } from '@angular/router'; 
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-resena-trabajadores',
+  selector: 'app-resena-trabajador-detalle',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './resena-trabajadores.html',
-  styleUrl: './resena-trabajadores.css'
+  templateUrl: './resena-trabajador-detalle.html',
+  styleUrl: './resena-trabajador-detalle.css'
 })
-export class ResenaTrabajadores implements OnInit{
-  // Simulamos datos de reseñas de trabajadores
-  // CADA OBJETO TRABAJADOR DEBE TENER LA PROPIEDAD 'resenasDetalle' (sin 'ñ')
-  trabajadores = [
+export class ResenaTrabajadorDetalle implements OnInit, OnDestroy {
+  currentWorker: any; 
+  relatedWorkers: any[] = []; 
+  private routeSubscription: Subscription | undefined;
+
+  // ¡DATOS SIMULADOS INTEGRADOS DIRECTAMENTE AQUÍ!
+  // ESTA DEBE SER UNA COPIA EXACTA DE LOS DATOS QUE ESTÁN EN resena-trabajadores.component.ts
+  // ASEGÚRATE QUE 'resenasDetalle' ESTÁ ESCRITO IGUAL EN TODOS LADOS (sin 'ñ' si así lo decidiste)
+  private ALL_TRABAJADORES_DATA = [
     {
       id: 1,
       nombre: 'Chalo Rodriguez',
@@ -134,7 +140,7 @@ export class ResenaTrabajadores implements OnInit{
       resena: "Impecable. La pintura quedó perfecta y muy limpia la casa después del trabajo.",
       telefono: '2711354427',
       imagenUrl: 'https://www.serviciodepinturadecasas.com/images/pintura-de-casas-precios.jpg',
-      resenasDetalle: [ // <--- ¡SIN 'Ñ' AQUI!
+      resenasDetalle: [ 
           {
               id: 'r7',
               usuarioNombre: 'Cliente G',
@@ -193,9 +199,42 @@ export class ResenaTrabajadores implements OnInit{
     }
   ];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.routeSubscription = this.route.paramMap.subscribe(params => {
+      const idString = params.get('id');
+      if (idString) {
+        const workerId = +idString; 
+        this.loadWorkerData(workerId);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
+    }
+  }
+
+  private loadWorkerData(id: number): void {
+    // Buscar al trabajador actual en los datos integrados de este componente
+    this.currentWorker = this.ALL_TRABAJADORES_DATA.find(t => t.id === id);
+
+    console.log('*** DEPURACIÓN DE WORKER DETALLE ***');
+    console.log('ID buscado en URL:', id);
+    console.log('Trabajador ACTUAL (currentWorker):', this.currentWorker);
+    console.log('Resenas Detalle del currentWorker:', this.currentWorker?.resenasDetalle); // <--- ¡SIN 'Ñ' Y CON ? PARA SEGURIDAD!
+
+    if (this.currentWorker) {
+      // Filtrar trabajadores relacionados por categoría (excluyendo al trabajador actual)
+      this.relatedWorkers = this.ALL_TRABAJADORES_DATA.filter(
+        t => t.categoria === this.currentWorker.categoria && t.id !== this.currentWorker.id
+      );
+      console.log('Trabajadores RELACIONADOS (relatedWorkers):', this.relatedWorkers);
+    } else {
+      console.warn('Trabajador no encontrado con ID:', id);
+    }
   }
 
   getStars(rating: number): number[] {

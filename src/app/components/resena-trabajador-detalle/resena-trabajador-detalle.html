@@ -1,0 +1,103 @@
+<div class="container py-4">
+  <a routerLink="/resena-trabajadores" class="d-flex align-items-center text-decoration-none text-secondary mb-4">
+    <i class="bi bi-arrow-left-short fs-6 me-1"></i>
+    Regresar a todas las reseñas
+  </a>
+
+  <div *ngIf="currentWorker" class="mb-5">
+    <h1 class="mb-4">Reseñas de {{ currentWorker.nombre }} ({{ currentWorker.categoria }})</h1>
+
+    <h2 class="h4 mb-3">Lo que dicen de {{ currentWorker.nombre }}:</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+      <div class="col" *ngFor="let resena of currentWorker.resenasDetalle">
+        <div class="card h-100 border-light-subtle">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <i class="bi bi-person-circle text-secondary me-2 fs-4"></i>
+              <div>
+                <h5 class="card-title fw-semibold mb-0">{{ resena.usuarioNombre }}</h5>
+                <small class="text-muted">{{ resena.fechaResena }}</small>
+              </div>
+            </div>
+            <h6 class="card-subtitle mb-2 text-dark">{{ resena.titulo }}</h6>
+            <div class="d-flex align-items-center mb-3">
+              <ng-container *ngFor="let star of getStars(resena.calificacion)">
+                <i class="bi bi-star-fill text-warning me-1" style="font-size: 0.9rem;"></i>
+              </ng-container>
+              <ng-container *ngFor="let star of getEmptyStars(resena.calificacion)">
+                <i class="bi bi-star text-light-emphasis me-1" style="font-size: 0.9rem;"></i>
+              </ng-container>
+              <span class="small text-secondary ms-1">{{ resena.calificacion }}.0/5</span>
+            </div>
+            <p class="card-text small text-secondary">{{ resena.descripcion }}</p>
+
+            <div *ngIf="resena.fotosDelTrabajo && resena.fotosDelTrabajo.length > 0" class="image-gallery-review mt-3 row g-2">
+            <div class="col-4" *ngFor="let foto of resena.fotosDelTrabajo">
+                <div class="image-square-wrapper rounded shadow-sm">
+                <img [src]="foto" alt="Foto del trabajo">
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!currentWorker.resenasDetalle || currentWorker.resenasDetalle.length === 0" class="alert alert-info mt-4" role="alert">
+      Este trabajador aún no tiene reseñas detalladas.
+    </div>
+
+
+    <h2 class="h4 mb-3">Otros trabajadores de {{ currentWorker.categoria }}:</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col" *ngFor="let trabajadorRelacionado of relatedWorkers">
+        <div class="card h-100 d-flex flex-column border-light-subtle card-resena">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-person-circle text-secondary me-2 fs-2"></i>
+              <div>
+                <h3 class="h6 fw-semibold text-dark mb-0">{{ trabajadorRelacionado.nombre }}</h3>
+                <p class="small text-secondary mb-0">{{ trabajadorRelacionado.fecha }}</p>
+                <div class="d-flex align-items-center mt-1">
+                  <ng-container *ngFor="let star of getStars(trabajadorRelacionado.calificacion)">
+                    <i class="bi bi-star-fill text-warning" style="font-size: 1rem;"></i>
+                  </ng-container>
+                  <ng-container *ngFor="let star of getEmptyStars(trabajadorRelacionado.calificacion)">
+                    <i class="bi bi-star text-light-emphasis" style="font-size: 1rem;"></i>
+                  </ng-container>
+                  <span class="small text-secondary ms-1">{{ trabajadorRelacionado.calificacion }}.0/5</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="image-gallery-container mb-3">
+              <img alt="Placeholder for construction project" [src]="trabajadorRelacionado.imagenUrl" class="card-image" />
+            </div>
+
+            <h4 class="h5 fw-bold text-dark mb-2">{{ trabajadorRelacionado.categoria }}</h4>
+            <p class="card-text small text-secondary mb-4 flex-grow-1">{{ trabajadorRelacionado.resena }}</p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center button-group"> 
+              <a href="https://wa.me/{{trabajadorRelacionado.telefono}}?text=Hola,%20me%20interesa%20tu%20servicio%20de%20{{trabajadorRelacionado.categoria}}%20ofrecido%20por%20{{trabajadorRelacionado.nombre}}.%20Me%20podrías%20dar%20más%20información?" 
+                 target="_blank" 
+                 class="btn btn-primary custom-btn py-2 px-3 fw-semibold text-decoration-none d-flex align-items-center justify-content-center"> 
+                 <i class="bi bi-whatsapp me-2"></i> Contactar 
+              </a> 
+              <a [routerLink]="['/resenas-trabajador', trabajadorRelacionado.id]" 
+                 class="btn btn-light custom-btn py-2 px-3 fw-semibold ms-sm-2 mt-2 mt-sm-0 text-decoration-none d-flex align-items-center justify-content-center">
+                 Ver reseñas
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="relatedWorkers.length === 0" class="alert alert-info mt-4" role="alert">
+        No hay otros trabajadores en la categoría de {{ currentWorker.categoria }} disponibles.
+    </div>
+
+  </div>
+
+  <div *ngIf="!currentWorker" class="alert alert-danger" role="alert">
+    Lo sentimos, no se encontró el trabajador.
+  </div>
+</div>
