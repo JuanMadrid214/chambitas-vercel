@@ -17,6 +17,7 @@ import { TipoRegistro } from './components/tipo-registro/tipo-registro';
 //nuevo componente:
 import { ResenaTrabajadorDetalle } from './components/resena-trabajador-detalle/resena-trabajador-detalle';
 import { NgModule } from '@angular/core';
+import { Navbar } from './components/navbar/navbar';
 
 
 export const routes: Routes = [
@@ -35,6 +36,8 @@ export const routes: Routes = [
   { path: 'detalles-servicio', component: DetallesServicio },
   { path: 'servicios-solicitados', component: ServiciosSolicitados },
   { path: 'resena-trabajadores', component: ResenaTrabajadores },
+  {path:'navbar',component : Navbar}, // Assuming this is the intended route for navbar component
+  {path: 'landing-page', component: LandingPage }, // Assuming this is the intended route for landing page navigation
   // NUEVA RUTA para el detalle de las reseñas de un trabajador
   { path: 'resenas-trabajador/:id', component: ResenaTrabajadorDetalle }, 
   { path: 'resumen', component: Resumen },
@@ -43,7 +46,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollOffset: [0, 70] })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

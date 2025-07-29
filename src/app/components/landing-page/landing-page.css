@@ -155,6 +155,14 @@ p {
     justify-content: center;
     font-size: 2.5rem;
 }
+.value-icon-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    display: block;
+}
+
 
 .value-description {
     margin-bottom: 0;
@@ -237,14 +245,23 @@ p {
 
 .area-icon-container {
     background-color: var(--primary-light, rgba(13, 110, 253, 0.1)) !important;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16 / 9;
     border-radius: 0.5rem;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    font-size: 2.5rem;
-    color: var(--primary-color, #0d6efd) !important;
+    padding: 0.5rem; /* Opcional: evita que la imagen toque los bordes */
+}
+
+.area-icon-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 
@@ -344,4 +361,76 @@ p {
     .section-subtitle {
         font-size: 1rem;
     }
+}
+
+.testimonial-card {
+  position: relative;
+  background-color: var(--white, #fff);
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: var(--primary-light, rgba(13, 110, 253, 0.1));
+  color: var(--primary-color, #0d6efd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+}
+
+.testimonial-name {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.testimonial-rating {
+  color: var(--warning, #ffc107);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .hero-section .col-md-6 {
+    text-align: center;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn.btn-primary {
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+  }
+
+  .hero-image-container {
+    position: relative;
+    padding-bottom: 75%; /* un poco más cuadrado para móviles */
+    margin-top: 2rem;
+  }
 }

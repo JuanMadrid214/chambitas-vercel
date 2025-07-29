@@ -1,18 +1,31 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Navbar } from '../navbar/navbar';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [],
+  imports: [Navbar],
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css'
 })
-export class LandingPage {
-  constructor (private router:Router) {}
+export class LandingPage implements OnInit {
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
-  Navegarlanding(){
-    this.router.navigate(['/tipo-registro']);
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const fragment = this.router.parseUrl(this.router.url).fragment;
+        if (fragment) {
+          setTimeout(() => {
+            this.viewportScroller.scrollToAnchor(fragment);
+          }, 100);
+        }
+      }
+    });
   }
 
-}
+  Navegarlanding() {
+    this.router.navigate(['/tipo-registro']);
+  }}

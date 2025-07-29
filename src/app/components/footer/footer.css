@@ -1,4 +1,4 @@
-/* ===== FOOTER ===== */
+/* 
 
 footer {
     background-color: #283e4a;
@@ -22,7 +22,7 @@ footer input[type="email"] {
 }
 
 
-/* ===== RESPONSIVE ===== */
+
 
 @media (max-width: 768px) {
     .navbar-nav {
@@ -34,4 +34,83 @@ footer input[type="email"] {
     .card {
         margin-bottom: 1.5rem;
     }
+} */
+
+footer {
+  font-family: 'Inter', sans-serif;
+}
+
+footer a:hover {
+  color: #fff !important;
+}
+
+.bg-dark {
+  background-color: #1f2937 !important; /* similar a Tailwind's gray-800 */
+}
+
+.text-muted {
+  color: #9ca3af !important; /* similar a Tailwind's gray-400 */
+}
+
+.border-secondary {
+  border-color: #374151 !important; /* similar to gray-700 */
+}
+
+.bg-secondary {
+  background-color: #b0b5bd !important;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* Redes sociales en el footer */
+.social-icons img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+ 
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.5);
+}
+.footer-column {
+  padding-top: 1rem; /* mismo espaciado en todas las columnas */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+/* Asegura que las columnas tengan la misma altura */
+.row.text-start {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Mejora visual para redes sociales */
+.social-icons img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.5);
 }
