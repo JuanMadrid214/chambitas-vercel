@@ -30,6 +30,8 @@ export const routes: Routes = [
   { path: 'restablecer-contrasena', component: RestablecerContrasena },
   { path: 'confirmacion-restablecer', component: ConfirmacionRestablecer },
   { path: 'verificacion', component: Verificacion },
+  {path: 'servicios-solicitados', component: ServiciosSolicitados },
+  {path: 'modificacion-perfil', component: ModificacionPerfil },
   { path: 'detalles-servicio', component: DetallesServicio },
   { path: 'servicios-solicitados', component: ServiciosSolicitados },
   { path: 'resena-trabajadores', component: ResenaTrabajadores },

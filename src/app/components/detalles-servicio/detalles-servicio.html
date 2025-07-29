@@ -1,1 +1,106 @@
-<p>detalles-servicio works!</p>
+<div class="text-center mb-8">
+  <h1 class="text-4xl font-bold">Detalles servicio</h1>
+  <p class="text-gray-500 mt-2">
+Verifica que la información que se muestra a continuación es correcta antes de confirmar el servicio  </p>
+</div>
+
+<div class="registration-card">
+  <div class="p-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+    
+      <div class="md:col-span-1 flex flex-col items-center">
+        <div class="w-48 h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+          <span class="text-gray-400"></span>
+        </div>
+        <h2 class="text-2xl font-semibold" style="color: var(--primary-blue);">Jardinero</h2>
+        <div class="flex items-center mt-2">
+          <span class="text-3xl font-bold mr-2" style="color: var(--primary-blue);">4</span>
+          <div class="flex text-yellow-400">
+            <span class="material-icons">star</span>
+            <span class="material-icons">star</span>
+            <span class="material-icons">star</span>
+            <span class="material-icons">star</span>
+            <span class="material-icons text-gray-300">star_border</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 mt-1">6 Calificaciones</p>
+
+        <div class="w-full mt-4 space-y-1">
+          <div class="flex items-center">
+            <span class="text-xs text-gray-500 mr-2">5</span>
+            <div class="w-full bg-gray-200 rounded-full h-1.5">
+              <div class="h-1.5 rounded-full" style="width: 80%; background-color: var(--primary-blue);"></div>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <span class="text-xs text-gray-500 mr-2">4</span>
+            <div class="w-full bg-gray-200 rounded-full h-1.5">
+              <div class="h-1.5 rounded-full" style="width: 60%; background-color: var(--primary-blue);"></div>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <span class="text-xs text-gray-500 mr-2">3</span>
+            <div class="w-full bg-gray-200 rounded-full h-1.5">
+              <div class="h-1.5 rounded-full" style="width: 20%; background-color: var(--primary-blue);"></div>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <span class="text-xs text-gray-500 mr-2">2</span>
+            <div class="w-full bg-gray-200 rounded-full h-1.5">
+              <div class="h-1.5 rounded-full" style="width: 10%; background-color: var(--primary-blue);"></div>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <span class="text-xs text-gray-500 mr-2">1</span>
+            <div class="w-full bg-gray-200 rounded-full h-1.5">
+              <div class="h-1.5 rounded-full" style="width: 5%; background-color: var(--primary-blue);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="md:col-span-2">
+        <form>
+          <div class="grid grid-cols-1 gap-6">
+            <div>
+              <label class="form-label" for="nombre">Nombre</label>
+              <input class="form-control" id="nombre" type="text" value="José Pérez León"/>
+            </div>
+            <div>
+              <label class="form-label" for="especialidad">Especialidad</label>
+              <input class="form-control" id="especialidad" type="text" value="Carpintería"/>
+            </div>
+            <div>
+              <label class="form-label" for="telefono">Número telefónico</label>
+              <input class="form-control" id="telefono" type="tel" value="271-123-45-67"/>
+            </div>
+            <div>
+              <label class="form-label" for="descripcion">Descripción</label>
+              <textarea class="form-control" id="descripcion" rows="4">Descripción del trabajador personalizada</textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<div class="border-t border-gray-200 px-8 py-6" style="padding: 20px;">
+  <div class="tabs-container">
+    <button class="tab-button active" type="button">Costo y tiempo</button>
+    <button class="tab-button" type="button">Medios de pago</button>
+    <button class="tab-button" type="button">Garantía</button>
+  </div>
+  <div class="question-input-container">
+    <textarea placeholder="Escribe tu pregunta" rows="1"></textarea>
+    <button
+      type="button"
+      [style.backgroundColor]="isHovering ? 'var(--dark-blue)' : 'var(--primary-blue)'"
+      (mouseover)="onMouseOver()"
+      (mouseout)="onMouseOut()"
+    >
+      Confirmar
+    </button>
+  </div>
+</div>
+</div>

@@ -1,6 +1,6 @@
 <div class="container my-5">
-  <a routerLink="/" class="btn btn-outline-primary mb-4 d-inline-flex align-items-center gap-2">
-    <i class="bi bi-arrow-left"></i> Regresar
+  <a (click)="Regreso()" class="btn btn-outline-primary mb-4 d-inline-flex align-items-center gap-2">
+    <i class="bi bi-arrow-left" rou></i> Regresar
   </a>
 
   <div class="row g-4">
@@ -16,7 +16,7 @@
             Tengo experiencia en mantenimiento residencial y remodelaciones de hogar.
           </p>
         </div>
-        <a routerLink="/registro-trabajador" class="btn btn-primary mt-4">Registrarme</a>
+        <a routerLink="/registro-trabajador" class="btn btn-primary mt-4" (click)="Empleado()">Registrarme</a>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
             Requiero personas responsables con experiencia comprobable.
           </p>
         </div>
-        <a routerLink="/registro-empleador" class="btn btn-primary mt-4">Registrarme</a>
+        <a routerLink="/registro-empleador" class="btn btn-primary mt-4" (click)="Empleador()">Registrarme</a>
       </div>
     </div>
   </div>

@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './detalles-servicio.css'
 })
 export class DetallesServicio {
+ isHovering = false;
 
+  onMouseOver() {
+    this.isHovering = true;
+  }
+
+  onMouseOut() {
+    this.isHovering = false;
+  }
 }

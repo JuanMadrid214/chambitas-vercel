@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-trabajadores',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './registro-trabajadores.css'
 })
 export class RegistroTrabajadores {
+  constructor (private router:Router) {}
+    Regreso(){
+    this.router.navigate(['/tipo-registro']);
+  }
 
 }

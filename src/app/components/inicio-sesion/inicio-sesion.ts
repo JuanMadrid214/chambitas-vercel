@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './inicio-sesion.css'
 })
 export class InicioSesion {
-
+  constructor(private router: Router) {}
+Regreso(){
+    this.router.navigate(['/landing-page']);
+  }
 }
