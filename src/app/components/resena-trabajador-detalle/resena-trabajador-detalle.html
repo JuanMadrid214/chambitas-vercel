@@ -32,12 +32,12 @@
             <p class="card-text small text-secondary">{{ resena.descripcion }}</p>
 
             <div *ngIf="resena.fotosDelTrabajo && resena.fotosDelTrabajo.length > 0" class="image-gallery-review mt-3 row g-2">
-            <div class="col-4" *ngFor="let foto of resena.fotosDelTrabajo">
-                <div class="image-square-wrapper rounded shadow-sm">
-                <img [src]="foto" alt="Foto del trabajo">
-                </div>
+        <div class="col-4" *ngFor="let foto of resena.fotosDelTrabajo">
+            <div class="image-square-wrapper rounded shadow-sm">
+            <img [src]="foto" alt="Foto del trabajo">
             </div>
-            </div>
+        </div>
+        </div>
           </div>
         </div>
       </div>
@@ -100,4 +100,4 @@
   <div *ngIf="!currentWorker" class="alert alert-danger" role="alert">
     Lo sentimos, no se encontró el trabajador.
   </div>
-</div>
+</div> 

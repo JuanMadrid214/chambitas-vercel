@@ -37,7 +37,7 @@ export const routes: Routes = [
   { path: 'resenas-trabajador/:id', component: ResenaTrabajadorDetalle }, 
   { path: 'resumen', component: Resumen },
   {path: 'tipo-registro', component: TipoRegistro}, // Assuming this is the intended route for landing page navigation
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' } 
 ];
 
 @NgModule({

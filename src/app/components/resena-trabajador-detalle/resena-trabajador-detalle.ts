@@ -175,7 +175,7 @@ export class ResenaTrabajadorDetalle implements OnInit, OnDestroy {
           }
       ]
     },
-     // NUEVO TRABAJADOR ELECTRICISTA PARA PROBAR relatedWorkers
+     // NUEVO TRABAJADOR ELECTRICISTA PARA PROBAR relatedWorkers 
     {
       id: 7, // Importante: ID único
       nombre: 'Roberto Voltaje',

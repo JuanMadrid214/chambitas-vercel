@@ -7,7 +7,7 @@
   min-height: 100vh;
   /* Si el navbar/footer siempre están visibles, ajusta esto: */
   /* min-height: calc(100vh - ALTURA_DE_TU_NAVBAR_GLOBAL - ALTURA_DE_TU_FOOTER_GLOBAL); */
-}
+} 
 
 /* El contenedor que envuelve el router-outlet */
 .router-content-wrapper {

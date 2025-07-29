@@ -7,7 +7,7 @@
   align-items: center;
   border-radius: var(--bs-border-radius); /* Aplica el redondeo al contenedor */
   box-shadow: var(--bs-box-shadow-sm); /* Aplica la sombra al contenedor */
-}
+} 
 
 /* Aplica los estilos a la imagen dentro de la tarjeta relacionada */
 .card-resena .image-gallery-container .card-image {

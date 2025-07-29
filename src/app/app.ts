@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Navbar } from "./components/navbar/navbar";
 import { Footer } from './components/footer/footer';
 import { Sidebar } from './components/sidebar/sidebar';
-//import { RouterOutlet } from 'express';
+//import { RouterOutlet } from 'express'; 
 
 @Component({
   selector: 'app-root',

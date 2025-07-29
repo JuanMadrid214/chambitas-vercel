@@ -173,7 +173,7 @@ export class ResenaTrabajadores implements OnInit{
     {
       id: 7, // Importante: ID único
       nombre: 'Roberto Voltaje',
-      fecha: '01/08/2023 - 09:00 a.m.',
+      fecha: '01/08/2023 - 09:00 a.m.', 
       calificacion: 4,
       categoria: 'Electricista', // Misma categoría que Ana García
       resena: "Un electricista muy capaz y amable. Recomendado para instalaciones.",
