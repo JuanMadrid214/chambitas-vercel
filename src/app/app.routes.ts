@@ -14,10 +14,13 @@ import { ServiciosSolicitados } from './components/servicios-solicitados/servici
 import { Verificacion } from './components/verificacion/verificacion';
 import { TipoRegistro } from './components/tipo-registro/tipo-registro';
 
+
 //nuevo componente:
 import { ResenaTrabajadorDetalle } from './components/resena-trabajador-detalle/resena-trabajador-detalle';
 import { NgModule } from '@angular/core';
 import { Navbar } from './components/navbar/navbar';
+import { PoliticaPrivacidad } from './components/politica-privacidad/politica-privacidad';
+import { TerminosYCondiciones } from './components/terminos-y-condiciones/terminos-y-condiciones';
 
 
 export const routes: Routes = [
@@ -42,6 +45,8 @@ export const routes: Routes = [
   { path: 'resenas-trabajador/:id', component: ResenaTrabajadorDetalle }, 
   { path: 'resumen', component: Resumen },
   {path: 'tipo-registro', component: TipoRegistro}, // Assuming this is the intended route for landing page navigation
+  {path : 'aviso-privacidad', component: PoliticaPrivacidad},
+  { path: 'terminos-y-condiciones', component: TerminosYCondiciones },
   { path: '**', redirectTo: '' } 
 ];
 

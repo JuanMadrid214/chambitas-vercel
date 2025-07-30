@@ -17,7 +17,7 @@ export class ResenaTrabajadorDetalle implements OnInit, OnDestroy {
 
   // ¡DATOS SIMULADOS INTEGRADOS DIRECTAMENTE AQUÍ!
   // ESTA DEBE SER UNA COPIA EXACTA DE LOS DATOS QUE ESTÁN EN resena-trabajadores.component.ts
-  // ASEGÚRATE QUE 'resenasDetalle' ESTÁ ESCRITO IGUAL EN TODOS LADOS (sin 'ñ' si así lo decidiste)
+  // ASEGÚRATE QUE 'resenasDetalle' ESTÁ ESCRITO IGUAL EN TODOS LADOS (sin 'ñ' si así lo decidiste )
   private ALL_TRABAJADORES_DATA = [
     {
       id: 1,

@@ -6,7 +6,7 @@ import { Navbar } from '../navbar/navbar';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [Navbar],
+  imports: [],//Navbar se cambió en las import de este componente, agregar si marca error
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css'
 })
@@ -28,4 +28,8 @@ export class LandingPage implements OnInit {
 
   Navegarlanding() {
     this.router.navigate(['/tipo-registro']);
-  }}
+  }
+  registroProfesionales(){
+    this.router.navigate(['/registro-trabajador'])
+  }
+}
