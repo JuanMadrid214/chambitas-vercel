@@ -13,8 +13,8 @@ import { Resumen } from './components/resumen/resumen';
 import { ServiciosSolicitados } from './components/servicios-solicitados/servicios-solicitados';
 import { Verificacion } from './components/verificacion/verificacion';
 import { TipoRegistro } from './components/tipo-registro/tipo-registro';
-
-
+import { ListaEmpleadores } from './components/lista-empleadores/lista-empleadores';
+import { ListaTrabajadores } from './components/lista-trabajadores/lista-trabajadores';
 //nuevo componente:
 import { ResenaTrabajadorDetalle } from './components/resena-trabajador-detalle/resena-trabajador-detalle';
 import { NgModule } from '@angular/core';
@@ -47,6 +47,8 @@ export const routes: Routes = [
   {path: 'tipo-registro', component: TipoRegistro}, // Assuming this is the intended route for landing page navigation
   {path : 'aviso-privacidad', component: PoliticaPrivacidad},
   { path: 'terminos-y-condiciones', component: TerminosYCondiciones },
+  {path: 'lista-empleadores', component: ListaEmpleadores},
+  {path: 'lista-trabajadores', component: ListaTrabajadores},
   { path: '**', redirectTo: '' } 
 ];
 

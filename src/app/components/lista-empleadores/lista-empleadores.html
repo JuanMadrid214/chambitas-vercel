@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <a (click)="Regreso()" class="btn btn-outline-primary mb-4 d-inline-flex align-items-center gap-2">
+    <i class="bi bi-arrow-left" rou></i> Regresar
+  </a>
+  <h2>Lista de Empleadores</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>CURP</th>
+        <th>Usuario</th>
+        <th>Código Postal</th>
+        <th>Zona</th>
+        <th>INE</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of empleadores">
+        <ng-container *ngIf="editandoId !== e.id; else editForm">
+          <td>{{ e.nombre }}</td>
+          <td>{{ e.email }}</td>
+          <td>{{ e.telefono }}</td>
+          <td>{{ e.curp }}</td>
+          <td>{{ e.usuario }}</td>
+          <td>{{ e.codigo_postal }}</td>
+          <td>{{ e.zona }}</td>
+          <td><a [href]="e.ine_url" target="_blank">Ver INE</a></td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="editar(e)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="eliminar(e.id)">Eliminar</button>
+          </td>
+        </ng-container>
+
+        <ng-template #editForm>
+          <td><input [(ngModel)]="editedData.nombre" class="form-control" /></td>
+          <td><input [(ngModel)]="editedData.email" class="form-control" /></td>
+          <td><input [(ngModel)]="editedData.telefono" class="form-control" /></td>
+          <td><input [(ngModel)]="editedData.curp" class="form-control" /></td>
+          <td><input [(ngModel)]="editedData.usuario" class="form-control" /></td>
+          <td><input [(ngModel)]="editedData.codigo_postal" class="form-control" /></td>
+          <td><input [(ngModel)]="editedData.zona" class="form-control" /></td>
+          <td><input [(ngModel)]="editedData.ine_url" class="form-control" /></td>
+          <td>
+            <button class="btn btn-success btn-sm" (click)="guardar(e.id)">Guardar</button>
+            <button class="btn btn-secondary btn-sm" (click)="cancelar()">Cancelar</button>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>

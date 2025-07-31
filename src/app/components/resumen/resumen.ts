@@ -11,10 +11,10 @@ export class Resumen {
 constructor (private router:Router) {}
 
   Empleador(){
-    this.router.navigate(['/registro-empleador']);
+    this.router.navigate(['/lista-empleadores']);
   }
   Empleado(){
-    this.router.navigate(['/registro-trabajador']);
+    this.router.navigate(['/lista-trabajadores']);
   }
   Regreso(){
     this.router.navigate(['/landing-page']);
