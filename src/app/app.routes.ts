@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CambioContrasena } from './components/cambio-contrasena/cambio-contrasena';
 import { ConfirmacionRestablecer } from './components/confirmacion-restablecer/confirmacion-restablecer';
 import { DetallesServicio } from './components/detalles-servicio/detalles-servicio';
-import { InicioSesion } from './components/inicio-sesion/inicio-sesion';
+import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion';
 import { LandingPage } from './components/landing-page/landing-page';
 import { ModificacionPerfil } from './components/modificacion-perfil/modificacion-perfil';
 import { RegistroEmpleador } from './components/registro-empleador/registro-empleador';
@@ -26,7 +26,7 @@ import { TerminosYCondiciones } from './components/terminos-y-condiciones/termin
 export const routes: Routes = [
   { path: '', component: LandingPage },
   { path: 'tablero', component: LandingPage },
-  { path: 'inicio-sesion', component: InicioSesion },
+  { path: 'inicio-sesion', component: InicioSesionComponent },
   { path: 'registro-trabajador', component: RegistroTrabajadores },
   { path: 'registro-empleador', component: RegistroEmpleador },
   { path: 'modificacion-perfil', component: ModificacionPerfil },
