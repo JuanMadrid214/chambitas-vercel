@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio-sesion',
-  templateUrl: './inicio-sesion.html'
+  templateUrl: './inicio-sesion.html',
+  imports: [FormsModule]
 })
 export class InicioSesionComponent {
   formData = {
@@ -27,9 +29,9 @@ export class InicioSesionComponent {
 
           // Redirigir según tipo
           if (res.user.tipo === 'empleador') {
-            this.router.navigate(['/dashboard-empleador']);
+            this.router.navigate(['/resumen']);
           } else if (res.user.tipo === 'trabajador') {
-            this.router.navigate(['/dashboard-trabajador']);
+            this.router.navigate(['/resena-trabajadores']);
           } else {
             this.router.navigate(['/']);
           }

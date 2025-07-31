@@ -1,42 +1,44 @@
 <div class="container mt-5 registration-container">
-  <div class="registration-card">
-    <!-- Encabezado con botón de regreso y título centrado -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <a (click)="Regreso()" class="btn btn-outline-primary d-inline-flex align-items-center gap-2">
-        <i class="bi bi-arrow-left"></i> Regresar
-      </a>
-      <h3 class="registration-title text-center flex-grow-1 m-0">Iniciar sesión</h3>
-      <div style="width: 120px;"><!-- Espaciador --></div>
+    <div class="registration-card">
+        <!-- Encabezado con botón de regreso y título centrado -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a (click)="Regreso()" class="btn btn-outline-primary d-inline-flex align-items-center gap-2">
+                <i class="bi bi-arrow-left"></i> Regresar
+            </a>
+            <h3 class="registration-title text-center flex-grow-1 m-0">Iniciar sesión</h3>
+            <div style="width: 120px;">
+                <!-- Espaciador -->
+            </div>
+        </div>
+
+        <!-- Formulario centrado y más estrecho -->
+        <div class="container mt-5 registration-container">
+            <div class="login-form-wrapper mx-auto">
+                <form (ngSubmit)="submit()" class="registration-form">
+                    <div class="mb-3">
+                        <label class="form-label">Correo</label>
+                        <input type="email" class="form-control" placeholder="ejemplo@domain.com" [(ngModel)]="formData.email" name="email" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="************" [(ngModel)]="formData.password" name="password" required />
+                    </div>
+
+                    <!-- Espacio para CAPTCHA visualmente -->
+                    <div class="mb-4 captcha-container text-center">
+                        <small>No soy un robot</small>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn registration-button">Ingresar</button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-decoration-none text-muted">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <!-- Formulario centrado y más estrecho -->
-     <div class="container mt-5 registration-container">
-    <div class="login-form-wrapper mx-auto">
-      <form class="registration-form">
-        <div class="mb-3">
-          <label class="form-label">Correo</label>
-          <input type="email" class="form-control" placeholder="ejemplo@domain.com" />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Contraseña</label>
-          <input type="password" class="form-control" placeholder="************" />
-        </div>
-
-        <!-- Espacio para CAPTCHA visualmente -->
-        <div class="mb-4 captcha-container text-center">
-          <small>No soy un robot</small>
-        </div>
-
-        <div class="d-grid">
-          <button type="submit" class="btn registration-button">Ingresar</button>
-        </div>
-
-        <div class="text-center mt-3">
-          <a href="#" class="text-decoration-none text-muted">¿Olvidaste tu contraseña?</a>
-        </div>
-      </form>
-    </div>
-    </div>
-  </div>
 </div>
