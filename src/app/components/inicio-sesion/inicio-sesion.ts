@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.html',
+  styleUrls: ['./inicio-sesion.css'],
   imports: [FormsModule]
 })
 export class InicioSesionComponent {
