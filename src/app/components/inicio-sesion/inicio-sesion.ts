@@ -18,7 +18,7 @@ export class InicioSesionComponent {
   constructor(private http: HttpClient, private router: Router) {}
     
   Regreso(){
-    this.router.navigate(['/tipo-registro']);
+    this.router.navigate(['/landing-page']);
     }
 
   submit() {
