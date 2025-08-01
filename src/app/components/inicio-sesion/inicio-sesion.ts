@@ -29,9 +29,9 @@ export class InicioSesionComponent {
 
           // Redirigir según tipo
           if (res.user.tipo === 'empleador') {
-            this.router.navigate(['/resumen']);
-          } else if (res.user.tipo === 'trabajador') {
             this.router.navigate(['/resena-trabajadores']);
+          } else if (res.user.tipo === 'trabajador') {
+            this.router.navigate(['/lista-publicaciones']);
           } else {
             this.router.navigate(['/']);
           }

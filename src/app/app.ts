@@ -27,9 +27,10 @@ export class App implements  OnInit{
       // Define las rutas donde el sidebar DEBE mostrarse (rutas logueadas)
       const loggedInRoutes = [
         '/resena-trabajadores',
-        '/dashboard', // Si se tiene el dashboard
-        '/servicios-solicitados', // Otros componentes que son post-login
-        // ... añade todas las rutas que requieran el sidebar
+        '/lista-publicaciones', 
+        '/servicios-solicitados',
+        '/publicacion',
+        // ... añadir todas las rutas que requieran el sidebar
       ];
 
       // Verifica si la URL actual (después de redirecciones) incluye alguna de las rutas logueadas

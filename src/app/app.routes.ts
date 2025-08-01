@@ -21,6 +21,9 @@ import { NgModule } from '@angular/core';
 import { Navbar } from './components/navbar/navbar';
 import { PoliticaPrivacidad } from './components/politica-privacidad/politica-privacidad';
 import { TerminosYCondiciones } from './components/terminos-y-condiciones/terminos-y-condiciones';
+import { PublicacionTrabajador } from './components/publicacion-trabajador/publicacion-trabajador';
+import { ListaPublicaciones } from './components/lista-publicaciones/lista-publicaciones';
+import { PublicacionDetalle } from './components/publicacion-detalle/publicacion-detalle';
 
 
 export const routes: Routes = [
@@ -41,6 +44,9 @@ export const routes: Routes = [
   { path: 'resena-trabajadores', component: ResenaTrabajadores },
   {path:'navbar',component : Navbar}, // Assuming this is the intended route for navbar component
   {path: 'landing-page', component: LandingPage }, // Assuming this is the intended route for landing page navigation
+  {path: 'publicacion-trabajador', component: PublicacionTrabajador},
+  {path: 'lista-publicaciones', component: ListaPublicaciones},
+  {path: 'publicacion/:id', component:PublicacionDetalle},
   // NUEVA RUTA para el detalle de las reseñas de un trabajador
   { path: 'resenas-trabajador/:id', component: ResenaTrabajadorDetalle }, 
   { path: 'resumen', component: Resumen },

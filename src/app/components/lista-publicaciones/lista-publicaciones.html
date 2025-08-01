@@ -1,0 +1,70 @@
+<div class="main-content-publicaciones">
+  <main class="content-padding">
+    <!-- Lista de publicaciones -->
+    <div class="row custom-card-row g-4">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let pub of publicaciones">
+        <div class="card h-100 d-flex flex-column border-light-subtle card-publicacion shadow-sm">
+          <img
+            [src]="pub.imagen_url"
+            class="card-img-top"
+            alt="Imagen publicación"
+            style="height: 180px; object-fit: cover;"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold text-dark mb-2">{{ pub.nombre || 'Usuario Desconocido' }}</h5>
+
+            <p class="card-text small text-secondary mb-2">{{ pub.descripcion }}</p>
+
+            <p class="text-muted small mb-1">
+            <i class="bi bi-geo-alt"></i> {{ pub.zona || 'Zona no disponible' }}
+            </p>
+            <p class="text-muted small mb-1">
+            <i class="bi bi-tools"></i> {{ pub.especialidad || 'Especialidad no disponible' }}
+            </p>
+
+            <p class="text-muted small mb-3">
+            <i class="bi bi-clock"></i> {{ pub.fecha | date: 'medium' }}
+            </p>
+
+            <div class="d-flex justify-content-between mt-auto button-group">
+              <button class="btn btn-primary btn-sm d-flex align-items-center" [routerLink]="['/publicacion', pub.id]">
+                <i class="bi bi-eye me-1"></i> Ver detalle
+            </button>
+              <a
+                    [href]="'https://wa.me/' + pub.telefono + '?text=' + encodeText('Hola, me interesa tu publicación: ' + pub.descripcion)"
+                    target="_blank"
+                    class="btn btn-success btn-sm d-flex align-items-center"
+                    rel="noopener noreferrer"
+                    *ngIf="pub.telefono && pub.telefono.length > 0" >
+                    <i class="bi bi-whatsapp me-1"></i> Contactar
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="text-center py-4">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p>Cargando publicaciones...</p>
+    </div>
+
+    <div *ngIf="!isLoading && publicaciones.length === 0" class="text-center text-muted py-4">
+      No hay publicaciones disponibles.
+    </div>
+
+    <!-- Botón flotante para nueva publicación -->
+    <button class="boton-flotante" (click)="abrirFormulario()">
+        +
+    </button>
+    
+    <!-- FORMULARIO SOBREPUESTO CON ANIMACIÓN -->
+    <div class="formulario-overlay" [class.active]="mostrarFormulario" (click)="abrirFormulario()">
+    <div class="formulario-modal" [class.active]="mostrarFormulario" (click)="$event.stopPropagation()">
+        <app-publicacion-trabajador
+        (publicacionCreada)="agregarPublicacion($event)">
+        </app-publicacion-trabajador>
+    </div>
+    </div>
+  </main>
+</div>
