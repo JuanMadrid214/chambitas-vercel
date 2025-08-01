@@ -20,13 +20,20 @@ export class PublicacionDetalle implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
-  ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.cargarPublicacion(id);
-      this.cargarComentarios(id);
-    }
+  usuarioActualNombre: string = '';
+
+ngOnInit() {
+  const id = this.route.snapshot.paramMap.get('id');
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+  this.usuarioActualNombre = user?.nombre || 'Usuario Actual';
+
+  if (id) {
+    this.cargarPublicacion(id);
+    this.cargarComentarios(id);
   }
+}
+
 
   async cargarPublicacion(id: string) {
     try {
@@ -37,18 +44,46 @@ export class PublicacionDetalle implements OnInit {
   }
 
   async cargarComentarios(id: string) {
-    this.comentarios = [
-      { usuarioNombre: 'Juan Pérez', texto: 'Muy buen trabajo!', fecha: new Date() }
-    ];
+  try {
+    const res = await this.http.get<any>(`http://localhost:4000/api/comentarios/${id}`).toPromise();
+    console.log('Comentarios recibidos:', res);
+
+    if (Array.isArray(res)) {
+      this.comentarios = res;
+    } else {
+      console.error('La respuesta no es un arreglo');
+      this.comentarios = [];
+    }
+  } catch (error) {
+    console.error('Error al cargar comentarios', error);
+    this.comentarios = [];
+  }
+}
+
+
+
+  async agregarComentario() {
+  if (!this.comentario.trim()) return;
+
+  const id_publicacion = this.publicacion.id;
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+  if (!user?.id) {
+    console.error('Usuario no autenticado');
+    return;
   }
 
-  agregarComentario() {
-    if (!this.comentario.trim()) return;
-    this.comentarios.push({
-      usuarioNombre: 'Usuario Actual',
-      texto: this.comentario,
-      fecha: new Date()
-    });
+  try {
+    await this.http.post(`http://localhost:4000/api/comentarios`, {
+      id_publicacion,
+      id_usuario: user.id, // ✅ se toma del localStorage
+      texto: this.comentario
+    }).toPromise();
+
     this.comentario = '';
+    this.cargarComentarios(id_publicacion);
+  } catch (error) {
+    console.error('Error al enviar comentario', error);
   }
+}
 }
