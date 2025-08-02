@@ -6,6 +6,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PLATFORM_ID } from '@angular/core';
 
+import { API_BASE_URL } from '../../../config';
+
 @Component({
   selector: 'app-modificacion-perfil',
   standalone: true,
@@ -17,7 +19,7 @@ export class ModificacionPerfil implements OnInit {
   activeTab: 'perfil' | 'password' = 'perfil';
   usuario: any = {};
   userId = 0;
-  mensaje: string = ''; // ✅ para mostrar mensajes en lugar de alert
+  mensaje: string = ''; // para mostrar mensajes en lugar de alert
   passwordForm = { actual: '', nueva: '', confirmar: '' };
 
   constructor(
@@ -44,7 +46,7 @@ export class ModificacionPerfil implements OnInit {
   }
 
   cargarUsuario() {
-       const url = `http://localhost:4000/api/auth/usuario/${this.userId}`;
+       const url = `${API_BASE_URL}/api/auth/usuario/${this.userId}`;
     // const url = `http://localhost:4000/api/usuario/${this.userId}`;
     this.http.get<any>(url).subscribe({
       next: (data) => {
@@ -72,7 +74,7 @@ export class ModificacionPerfil implements OnInit {
 
   guardarCambios() {
     const tipo = this.usuario.tipo_usuario;
-    const rutaBase = 'http://localhost:4000/api/auth';
+    const rutaBase = `${API_BASE_URL}/api/auth`;
     const ruta = tipo === 'empleador'
       ? `${rutaBase}/empleadores/${this.userId}`
       : tipo === 'trabajador'
@@ -99,7 +101,7 @@ export class ModificacionPerfil implements OnInit {
       return;
     }
 
-const url = `http://localhost:4000/api/auth/usuario/${this.userId}/password`;
+const url = `${API_BASE_URL}/api/auth/usuario/${this.userId}/password`;
     this.http.put(url, {
       actual: this.passwordForm.actual,
       nueva: this.passwordForm.nueva
