@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
+import { API_BASE_URL } from '../../../config';
+
 @Component({
   selector: 'app-registro-empleador',
   standalone: true,
@@ -43,7 +45,7 @@ export class RegistroEmpleador {
 
   // Función para verificar si el email ya está registrado
   checkEmailExists(email: string): Promise<boolean> {
-    return firstValueFrom(this.http.get<{ exists: boolean }>(`http://localhost:4000/api/auth/check-email?email=${encodeURIComponent(email)}`))
+    return firstValueFrom(this.http.get<{ exists: boolean }>(`${API_BASE_URL}/api/auth/check-email?email=${encodeURIComponent(email)}`))
       .then(res => res.exists)
       .catch(() => false);
   }
@@ -60,7 +62,8 @@ export class RegistroEmpleador {
       try {
         // Subir imagen a backend
         const uploadResponse = await this.http.post<any>(
-          'http://localhost:4000/api/upload',
+          //'http://localhost:4000/api/upload',
+          `${API_BASE_URL}/api/upload`,
           this.createFormData(this.selectedFile)
         ).toPromise();
 
@@ -73,7 +76,7 @@ export class RegistroEmpleador {
       this.uploading = false;
     }
 
-    this.http.post('http://localhost:4000/api/auth/register', this.formData)
+    this.http.post(`${API_BASE_URL}/api/auth/register`, this.formData)
     .subscribe({
       next: () => {
         alert('Registro exitoso');

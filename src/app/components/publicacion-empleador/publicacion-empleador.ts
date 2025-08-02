@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { API_BASE_URL } from '../../../config';
+
 @Component({
   selector: 'app-publicacion-empleador',
   imports: [CommonModule, FormsModule],
@@ -41,7 +43,7 @@ export class PublicacionEmpleador implements OnInit {
       const formData = new FormData();
       formData.append('imagen', this.imagenFile);
 
-      const uploadRes: any = await this.http.post('http://localhost:4000/api/upload-publicacion', formData).toPromise();
+      const uploadRes: any = await this.http.post(`${API_BASE_URL}/api/upload-publicacion`, formData).toPromise();
       const imagenUrl = uploadRes.url;
 
       const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -51,10 +53,10 @@ export class PublicacionEmpleador implements OnInit {
         imagenUrl: imagenUrl
       };
 
-      const createRes: any = await this.http.post('http://localhost:4000/api/publicaciones', publicacionParaGuardar).toPromise();
+      const createRes: any = await this.http.post(`${API_BASE_URL}/api/publicaciones`, publicacionParaGuardar).toPromise();
       const nuevaId = createRes.id;
 
-      const publicacionCompleta: any = await this.http.get(`http://localhost:4000/api/publicaciones/empleador/${nuevaId}`).toPromise();
+      const publicacionCompleta: any = await this.http.get(`${API_BASE_URL}/api/publicaciones/empleador/${nuevaId}`).toPromise();
 
       this.publicacionCreada.emit(publicacionCompleta);
       alert('¡Publicación guardada exitosamente!');

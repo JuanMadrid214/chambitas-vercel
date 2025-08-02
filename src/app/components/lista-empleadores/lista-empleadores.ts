@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 
+import { API_BASE_URL } from '../../../config';
+
 @Component({
   selector: 'app-lista-empleadores',
   standalone: true,
@@ -23,7 +25,7 @@ export class ListaEmpleadores implements OnInit {
   }
 
   cargarEmpleadores() {
-    this.http.get<any[]>('http://localhost:4000/api/auth/empleadores')
+    this.http.get<any[]>(`${API_BASE_URL}/api/auth/empleadores`)
       .subscribe(data => this.empleadores = data);
   }
 
@@ -33,7 +35,7 @@ export class ListaEmpleadores implements OnInit {
   }
 
   guardar(id: number) {
-    this.http.put(`http://localhost:4000/api/auth/empleadores/${id}`, this.editedData)
+    this.http.put(`${API_BASE_URL}/api/auth/empleadores/${id}`, this.editedData)
       .subscribe(() => {
         this.editandoId = null;
         this.cargarEmpleadores();
@@ -46,7 +48,7 @@ export class ListaEmpleadores implements OnInit {
 
   eliminar(id: number) {
     if (confirm('¿Seguro que deseas eliminar este registro?')) {
-      this.http.delete(`http://localhost:4000/api/auth/empleadores/${id}`)
+      this.http.delete(`${API_BASE_URL}/api/auth/empleadores/${id}`)
         .subscribe(() => this.cargarEmpleadores());
     }
   }

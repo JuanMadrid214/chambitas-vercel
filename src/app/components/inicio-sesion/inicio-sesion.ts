@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { API_BASE_URL } from '../../../config';
+
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.html',
@@ -22,7 +24,7 @@ export class InicioSesionComponent {
     }
 
   submit() {
-    this.http.post<any>('http://localhost:4000/api/auth/login', this.formData)
+    this.http.post<any>(`${API_BASE_URL}/api/auth/login`, this.formData)
       .subscribe({
         next: (res) => {
           // Guardar datos del usuario sin JWT

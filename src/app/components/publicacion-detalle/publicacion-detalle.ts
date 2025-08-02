@@ -5,6 +5,8 @@ import { CommonModule, DatePipe } from '@angular/common'; // para ngIf, ngFor y 
 import { FormsModule } from '@angular/forms'; // para ngModel
 import { RouterModule } from '@angular/router'; // para routerLink
 
+import { API_BASE_URL } from '../../../config';
+
 @Component({
   selector: 'app-publicacion-detalle',
   standalone: true,
@@ -37,7 +39,7 @@ ngOnInit() {
 
 async cargarPublicacion(id: string, tipo: string) {
   try {
-    const url = `http://localhost:4000/api/publicaciones/${tipo}/${id}`;
+    const url = `${API_BASE_URL}/api/publicaciones/${tipo}/${id}`;
     this.publicacion = await this.http.get(url).toPromise();
   } catch (error) {
     console.error('Error al cargar publicación', error);
@@ -46,7 +48,7 @@ async cargarPublicacion(id: string, tipo: string) {
 
   async cargarComentarios(id: string) {
   try {
-    const res = await this.http.get<any>(`http://localhost:4000/api/comentarios/${id}`).toPromise();
+    const res = await this.http.get<any>(`${API_BASE_URL}/api/comentarios/${id}`).toPromise();
     console.log('Comentarios recibidos:', res);
 
     if (Array.isArray(res)) {
@@ -75,9 +77,9 @@ async cargarPublicacion(id: string, tipo: string) {
   }
 
   try {
-    await this.http.post(`http://localhost:4000/api/comentarios`, {
+    await this.http.post(`${API_BASE_URL}/api/comentarios`, {
       id_publicacion,
-      id_usuario: user.id, // ✅ se toma del localStorage
+      id_usuario: user.id, // se toma del localStorage
       texto: this.comentario
     }).toPromise();
 

@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { API_BASE_URL } from '../../../config';
+
 @Component({
   selector: 'app-lista-trabajadores',
   standalone: true,
@@ -24,7 +26,7 @@ export class ListaTrabajadores implements OnInit {
   }
 
   cargarTrabajadores() {
-    this.http.get<any[]>('http://localhost:4000/api/auth/trabajadores')
+    this.http.get<any[]>(`${API_BASE_URL}/api/auth/trabajadores`)
       .subscribe(data => this.trabajadores = data);
   }
 
@@ -34,7 +36,7 @@ export class ListaTrabajadores implements OnInit {
   }
 
   guardar(id: number) {
-    this.http.put(`http://localhost:4000/api/auth/trabajadores/${id}`, this.editedData)
+    this.http.put(`${API_BASE_URL}/api/auth/trabajadores/${id}`, this.editedData)
       .subscribe(() => {
         this.editandoId = null;
         this.cargarTrabajadores();
@@ -47,7 +49,7 @@ export class ListaTrabajadores implements OnInit {
 
   eliminar(id: number) {
     if (confirm('¿Deseas eliminar este trabajador?')) {
-      this.http.delete(`http://localhost:4000/api/auth/trabajadores/${id}`)
+      this.http.delete(`${API_BASE_URL}/api/auth/trabajadores/${id}`)
         .subscribe(() => this.cargarTrabajadores());
     }
   }

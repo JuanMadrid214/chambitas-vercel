@@ -6,6 +6,8 @@ import { PublicacionTrabajador } from '../publicacion-trabajador/publicacion-tra
 import { RouterModule } from '@angular/router'; 
 
 
+import { API_BASE_URL } from '../../../config';
+
 
 @Component({
   selector: 'app-lista-publicaciones',
@@ -29,7 +31,7 @@ export class ListaPublicaciones implements OnInit {
   async cargarPublicaciones() {
     this.isLoading = true;
     try {
-      this.publicaciones = await firstValueFrom(this.http.get<any[]>('http://localhost:4000/api/publicaciones/trabajador'));
+      this.publicaciones = await firstValueFrom(this.http.get<any[]>(`${API_BASE_URL}/api/publicaciones/trabajador`));
     } catch (error) {
       console.error('Error al cargar publicaciones', error);
     } finally {
@@ -39,7 +41,7 @@ export class ListaPublicaciones implements OnInit {
 
   async cargarPublicacion(id: number) {
     try {
-      const publicacion: any = await firstValueFrom(this.http.get(`http://localhost:4000/api/publicaciones/trabajador/${id}`));
+      const publicacion: any = await firstValueFrom(this.http.get(`${API_BASE_URL}/api/publicaciones/trabajador/${id}`));
       this.publicaciones.unshift(publicacion);
     } catch (error) {
       console.error('Error al cargar la publicación individual', error);
