@@ -33,6 +33,8 @@ export class InicioSesionComponent {
             this.router.navigate(['/resena-trabajadores']);
           } else if (res.user.tipo === 'trabajador') {
             this.router.navigate(['/lista-publicaciones']);
+          }else if (res.user.tipo === 'administrador') {
+            this.router.navigate(['/resumen']);
           } else {
             this.router.navigate(['/']);
           }

@@ -3,44 +3,71 @@
     <i class="bi bi-arrow-left-short fs-5 me-2"></i> Regresar a publicaciones
   </a>
 
-  <div class="card detalle-publicacion-card mb-5 shadow-sm rounded">
+  <div class="card detalle-publicacion-card mb-5 shadow rounded">
     <img [src]="publicacion.imagen_url" alt="Imagen de la publicación" class="detalle-imagen img-fluid rounded-top" />
     <div class="card-body px-4 py-3">
-      <h2 class="mb-3">{{ publicacion.nombre || 'Usuario Desconocido' }}</h2>
+      <h2 class="mb-3 fw-bold">{{ publicacion.nombre || 'Usuario Desconocido' }}</h2>
 
-      <div class="info-meta mb-3 d-flex flex-wrap gap-3">
-        <span class="badge bg-primary">
+      <div class="info-meta mb-4 d-flex flex-wrap gap-3">
+        <span class="badge bg-primary d-flex align-items-center">
           <i class="bi bi-geo-alt-fill me-1"></i> {{ publicacion.zona || 'Zona no disponible' }}
         </span>
-        <span class="badge bg-secondary">
+        <span class="badge bg-secondary d-flex align-items-center">
           <i class="bi bi-briefcase-fill me-1"></i> {{ publicacion.especialidad || 'Especialidad no disponible' }}
         </span>
       </div>
 
-      <p class="descripcion-text mb-4">{{ publicacion.descripcion }}</p>
+      <p class="descripcion-text mb-4 fs-5 text-secondary">{{ publicacion.descripcion }}</p>
 
-      <p class="text-muted fst-italic small">
+      <p class="text-muted fst-italic small d-flex align-items-center gap-1">
         <i class="bi bi-clock me-1"></i> {{ publicacion.fecha | date:'medium' }}
       </p>
     </div>
   </div>
 
   <section class="comentarios-section">
-    <h4 class="mb-4 border-bottom pb-2">Comentarios ({{ comentarios.length }})</h4>
+    <h4 class="mb-4 border-bottom pb-2 d-flex align-items-center">
+      <i class="bi bi-chat-left-dots-fill me-2 fs-4 text-primary"></i>
+      Comentarios ({{ comentarios.length }})
+    </h4>
 
-    <div *ngFor="let c of comentarios" class="comentario-card mb-3 p-3 rounded shadow-sm">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-<strong class="comentario-usuario">{{ c.usuario_nombre }}</strong>
-
+    <div *ngFor="let c of comentarios" class="comentario-card mb-3 p-3 rounded shadow-sm border-start border-4 border-primary bg-light">
+      <div class="d-flex justify-content-between align-items-start mb-2 flex-wrap gap-2">
+        <div>
+          <strong class="comentario-usuario text-primary">{{ c.usuario_nombre }}</strong>
+          <span class="text-muted ms-2 small">(&#64;{{ c.nombre_usuario }})</span>
+          <span
+            class="badge ms-2"
+            [ngClass]="{
+              'bg-success': c.tipo_usuario === 'empleador',
+              'bg-info text-dark': c.tipo_usuario === 'trabajador'
+            }"
+          >
+            {{ c.tipo_usuario | titlecase }}
+          </span>
+        </div>
         <small class="text-muted fst-italic">{{ c.fecha | date:'short' }}</small>
       </div>
-      <p class="comentario-texto mb-0">{{ c.texto }}</p>
+      <p class="comentario-texto mb-0 fs-6 text-secondary">{{ c.texto }}</p>
     </div>
 
     <form (ngSubmit)="agregarComentario()" #comentarioForm="ngForm" class="mt-4">
       <label for="comentario" class="form-label fw-semibold mb-2">Agregar un comentario</label>
-      <textarea id="comentario" [(ngModel)]="comentario" name="comentario" class="form-control" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
-      <button type="submit" class="btn btn-primary mt-3" [disabled]="!comentario.trim()">
+      <textarea
+        id="comentario"
+        [(ngModel)]="comentario"
+        name="comentario"
+        class="form-control"
+        rows="4"
+        placeholder="Escribe tu comentario aquí..."
+        required
+      ></textarea>
+      <button
+        type="submit"
+        class="btn btn-primary mt-3"
+        [disabled]="!comentario.trim()"
+        style="transition: background-color 0.3s ease"
+      >
         Enviar
       </button>
     </form>

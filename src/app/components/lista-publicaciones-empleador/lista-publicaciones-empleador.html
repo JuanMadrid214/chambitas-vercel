@@ -16,28 +16,37 @@
             <p class="card-text small text-secondary mb-2">{{ pub.descripcion }}</p>
 
             <p class="text-muted small mb-1">
-            <i class="bi bi-geo-alt"></i> {{ pub.zona || 'Zona no disponible' }}
-            </p>
-            <p class="text-muted small mb-1">
-            <i class="bi bi-tools"></i> {{ pub.especialidad || 'Especialidad no disponible' }}
+              <i class="bi bi-geo-alt"></i> {{ pub.zona || 'Zona no disponible' }}
             </p>
 
+            <!--
+              <p class="text-muted small mb-1">
+                <i class="bi bi-tools"></i> {{ pub.especialidad || 'Especialidad no disponible' }}
+              </p>
+            -->
+            <!-- Lo anterior queda comentado porque no tienes especialidad en empleador -->
+
             <p class="text-muted small mb-3">
-            <i class="bi bi-clock"></i> {{ pub.fecha | date: 'medium' }}
+              <i class="bi bi-clock"></i> {{ pub.fecha | date: 'medium' }}
             </p>
 
             <div class="d-flex justify-content-between mt-auto button-group">
-              <button class="btn btn-primary btn-sm d-flex align-items-center" [routerLink]="['/publicacion', 'trabajador', pub.id]">
+              <button
+                class="btn btn-primary btn-sm d-flex align-items-center"
+                [routerLink]="['/publicacion', 'empleador', pub.id]"
+              >
                 <i class="bi bi-eye me-1"></i> Ver detalle
-            </button>
+              </button>
+
               <a
-                    [href]="'https://wa.me/' + pub.telefono + '?text=' + encodeText('Hola, me interesa tu publicación: ' + pub.descripcion)"
-                    target="_blank"
-                    class="btn btn-success btn-sm d-flex align-items-center"
-                    rel="noopener noreferrer"
-                    *ngIf="pub.telefono && pub.telefono.length > 0" >
-                    <i class="bi bi-whatsapp me-1"></i> Contactar
-                </a>
+                *ngIf="pub.telefono && pub.telefono.length > 0"
+                [href]="'https://wa.me/' + pub.telefono + '?text=' + encodeText('Hola, me interesa tu publicación: ' + pub.descripcion)"
+                target="_blank"
+                class="btn btn-success btn-sm d-flex align-items-center"
+                rel="noopener noreferrer"
+              >
+                <i class="bi bi-whatsapp me-1"></i> Contactar
+              </a>
             </div>
           </div>
         </div>
@@ -54,17 +63,13 @@
     </div>
 
     <!-- Botón flotante para nueva publicación -->
-    <button class="boton-flotante" (click)="abrirFormulario()" title="Crear una publicación">
-        +
-    </button>
-    
+    <button class="boton-flotante" (click)="abrirFormulario()" title="Crear una publicación">+</button>
+
     <!-- FORMULARIO SOBREPUESTO CON ANIMACIÓN -->
     <div class="formulario-overlay" [class.active]="mostrarFormulario" (click)="abrirFormulario()">
-    <div class="formulario-modal" [class.active]="mostrarFormulario" (click)="$event.stopPropagation()">
-        <app-publicacion-trabajador
-        (publicacionCreada)="agregarPublicacion($event)">
-        </app-publicacion-trabajador>
-    </div>
+      <div class="formulario-modal" [class.active]="mostrarFormulario" (click)="$event.stopPropagation()">
+        <app-publicacion-empleador (publicacionCreada)="agregarPublicacion($event)"></app-publicacion-empleador>
+      </div>
     </div>
   </main>
 </div>

@@ -1,0 +1,135 @@
+:host {
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --whatsapp-green: #25d366;
+  --whatsapp-green-hover: #1eaf52;
+}
+
+.main-content-publicaciones {
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.content-padding {
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .content-padding {
+    padding: 3rem;
+  }
+}
+
+.custom-card-row {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.card-publicacion {
+  border-radius: 0.5rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-publicacion:hover {
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
+}
+
+.card-publicacion .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.card-publicacion .btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.card-publicacion .btn-success {
+  background-color: var(--whatsapp-green);
+  border-color: var(--whatsapp-green);
+  color: white;
+}
+
+.card-publicacion .btn-success:hover {
+  background-color: var(--whatsapp-green-hover);
+  border-color: var(--whatsapp-green-hover);
+}
+
+.button-group > * {
+  min-width: 110px;
+  font-size: 0.9rem;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+
+/* Botón flotante */
+.boton-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1001;
+}
+
+
+/* Fondo oscuro */
+.formulario-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.formulario-overlay.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal centrado */
+.formulario-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%) scale(0.95);
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1002;
+}
+
+.formulario-modal.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}

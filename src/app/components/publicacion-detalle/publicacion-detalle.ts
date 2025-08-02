@@ -24,24 +24,25 @@ export class PublicacionDetalle implements OnInit {
 
 ngOnInit() {
   const id = this.route.snapshot.paramMap.get('id');
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  const tipo = this.route.snapshot.paramMap.get('tipo'); // <- lo importante
 
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
   this.usuarioActualNombre = user?.nombre || 'Usuario Actual';
 
-  if (id) {
-    this.cargarPublicacion(id);
+  if (id && tipo) {
+    this.cargarPublicacion(id, tipo);
     this.cargarComentarios(id);
   }
 }
 
-
-  async cargarPublicacion(id: string) {
-    try {
-      this.publicacion = await this.http.get(`http://localhost:4000/api/publicaciones/trabajador/${id}`).toPromise();
-    } catch (error) {
-      console.error('Error al cargar publicación', error);
-    }
+async cargarPublicacion(id: string, tipo: string) {
+  try {
+    const url = `http://localhost:4000/api/publicaciones/${tipo}/${id}`;
+    this.publicacion = await this.http.get(url).toPromise();
+  } catch (error) {
+    console.error('Error al cargar publicación', error);
   }
+}
 
   async cargarComentarios(id: string) {
   try {

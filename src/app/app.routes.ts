@@ -24,6 +24,8 @@ import { TerminosYCondiciones } from './components/terminos-y-condiciones/termin
 import { PublicacionTrabajador } from './components/publicacion-trabajador/publicacion-trabajador';
 import { ListaPublicaciones } from './components/lista-publicaciones/lista-publicaciones';
 import { PublicacionDetalle } from './components/publicacion-detalle/publicacion-detalle';
+import { PublicacionEmpleador } from './components/publicacion-empleador/publicacion-empleador';
+import { ListaPublicacionesEmpleador } from './components/lista-publicaciones-empleador/lista-publicaciones-empleador';
 
 
 export const routes: Routes = [
@@ -45,8 +47,11 @@ export const routes: Routes = [
   {path:'navbar',component : Navbar}, // Assuming this is the intended route for navbar component
   {path: 'landing-page', component: LandingPage }, // Assuming this is the intended route for landing page navigation
   {path: 'publicacion-trabajador', component: PublicacionTrabajador},
+  {path: 'publicacion-empleador', component:PublicacionEmpleador},
+  {path: 'lista-publicaciones-empleador', component:ListaPublicacionesEmpleador},
   {path: 'lista-publicaciones', component: ListaPublicaciones},
-  {path: 'publicacion/:id', component:PublicacionDetalle},
+  //{path: 'publicacion/:id', component:PublicacionDetalle},
+  { path: 'publicacion/:tipo/:id', component: PublicacionDetalle },
   // NUEVA RUTA para el detalle de las reseñas de un trabajador
   { path: 'resenas-trabajador/:id', component: ResenaTrabajadorDetalle }, 
   { path: 'resumen', component: Resumen },
