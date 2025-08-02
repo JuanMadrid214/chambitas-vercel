@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,9 +10,12 @@ import { RouterModule } from '@angular/router';
   styleUrl: './sidebar.css'
 })
 export class Sidebar implements OnInit{
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
       
   }
+  perfil(){
+    this.router.navigate(['/modificacion-perfil']);
+    }
 }
