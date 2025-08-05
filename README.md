@@ -11,6 +11,6 @@ Dentro del panel se muestra la lista de los empleos disponibles con secciones de
 Integrantes:
 Isaí López Fuentes
 Grecia Jaquelin López Calixto
-Kevin Noé Fernénadez López 
+Kevin Noé Fernández López 
 Juan de Dios Madrid Ortiz
 Ismael David Flores Luna
